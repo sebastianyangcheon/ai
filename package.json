@@ -1,0 +1,8 @@
+{
+  "name": "fps-coach-ai",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "openai": "^5.19.0"
+  }
+}

@@ -23,7 +23,7 @@
     <div class="hero-copy">
       <div class="eyebrow">PERSONAL FPS PERFORMANCE ANALYZER</div>
       <h1>한 판의 전적을<br><span>다음 판의 성장</span>으로.</h1>
-      <p>VALORANT와 OVERWATCH 2의 경기 결과를 직접 입력하세요. 최근 경기 흐름까지 함께 분석해 지금 가장 먼저 개선할 플레이를 찾아드립니다.</p>
+      <p>VALORANT와 OVERWATCH 2의 경기 결과를 직접 입력하세요. 최근 경기 흐름까지 함께 분석해 지금 가장 먼저 개선할 플레이를 찾아드립니다. 자동 전적을 불러오면 최근 5경기의 반복 패턴도 함께 확인할 수 있습니다.</p>
       <button class="primary" data-go="input">전적 입력하기 <span>→</span></button>
     </div>
     <div class="hero-card">
@@ -58,6 +58,23 @@
     <button class="game active" data-game="valorant"><b>VALORANT</b><small>Riot Games</small></button>
     <button class="game" data-game="overwatch"><b>OVERWATCH 2</b><small>Blizzard</small></button>
   </div>
+  <div id="valorantAuto" class="auto-panel">
+    <div class="auto-head">
+      <div><div class="eyebrow">VALORANT AUTO IMPORT</div><h3>최근 전적 자동 불러오기</h3></div>
+      <span class="auto-badge">BETA</span>
+    </div>
+    <p>Riot ID를 입력하면 HenrikDev API를 통해 최근 VALORANT 경기 데이터를 불러옵니다. 본인 또는 사용 허가를 받은 계정만 조회하세요.</p>
+    <label class="consent-line"><input id="valorantConsent" type="checkbox"> 내 계정 데이터 조회에 동의하며, 이 서비스의 분석 목적으로 사용합니다.</label>
+    <div class="riot-fields">
+      <input id="riotName" type="text" placeholder="닉네임" autocomplete="off">
+      <span>#</span>
+      <input id="riotTag" type="text" placeholder="태그" autocomplete="off">
+      <select id="valorantRegion" aria-label="지역"><option value="kr">KR</option><option value="ap">AP</option><option value="na">NA</option><option value="eu">EU</option></select>
+      <button type="button" class="secondary" id="loadValorant">최근 전적 불러오기</button>
+    </div>
+    <div id="valorantStatus" class="auto-status"></div>
+    <div id="valorantMatches" class="auto-matches"></div>
+  </div>
   <form id="form" class="form-panel">
     <div class="form-head"><span id="gameName">VALORANT</span><span class="form-note">* 필수 입력</span></div>
     <div class="fields">
@@ -70,7 +87,7 @@
       <label>임팩트 (0–100)<input id="impact" type="number" min="0" max="100" step=".1" value="62"></label>
       <label>포지셔닝 (0–100)<input id="position" type="number" min="0" max="100" step=".1" value="58"></label>
     </div>
-    <div class="tip"><b>💡 TIP</b><span>정확한 게임별 API가 없어도 사용할 수 있도록 공통 FPS 지표를 사용합니다. 이 점수는 공식 랭크가 아닌 프로젝트용 코칭 점수입니다.</span></div>
+    <div class="tip"><b>💡 TIP</b><span>VALORANT 자동 불러오기를 사용하면 실제 경기의 K/D/A와 헤드샷 데이터를 입력값으로 채울 수 있습니다. 정확도와 포지셔닝은 API가 직접 제공하지 않으므로 프로젝트용 추정 지표로 계산됩니다.</span></div>
     <button class="primary full" type="submit">분석 결과 보기 →</button>
   </form>
 </section>
@@ -94,6 +111,6 @@
 </section>
 </main>
 <footer>FPS Coach AI v2 · VALORANT / OVERWATCH 2 · 회원가입 없음 · 무료 MVP</footer>
-<script src="app.js"></script>
+<script src="app.js?v=6" defer></script>
 </body>
 </html>
